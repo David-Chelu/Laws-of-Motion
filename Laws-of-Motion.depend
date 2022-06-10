@@ -1,0 +1,53 @@
+# depslib dependency file v1.0
+1639045922 source:d:\david\programming\projects (portfolio)\2021.12.06 (laws-of-motion)\main.cpp
+	<fstream>
+	<string>
+	<vector>
+	<windows.h>
+	<conio.h>
+	<stdio.h>
+	<iostream>
+	<time.h>
+	<string.h>
+	"Classes.h"
+
+1638896462 d:\david\programming\projects (portfolio)\2021.12.06 (laws-of-motion)\classes.h
+	"Functions.h"
+	"Rectangle.h"
+	"ConsoleDisplay.h"
+	"Class Functions.h"
+
+1638897463 d:\david\programming\projects (portfolio)\2021.12.06 (laws-of-motion)\functions.h
+
+1639046182 d:\david\programming\projects (portfolio)\2021.12.06 (laws-of-motion)\rectangle.h
+
+1638751007 d:\david\programming\projects (portfolio)\2021.12.06 (laws-of-motion)\consoledisplay.h
+
+1639046429 d:\david\programming\projects (portfolio)\2021.12.06 (laws-of-motion)\class functions.h
+
+1654890681 source:d:\programming\projects (portfolio)\2021.12.06 (laws-of-motion)\main.cpp
+	<fstream>
+	<string>
+	<vector>
+	<windows.h>
+	<conio.h>
+	<stdio.h>
+	<iostream>
+	<time.h>
+	<string.h>
+	"Classes.h"
+
+1638900062 d:\programming\projects (portfolio)\2021.12.06 (laws-of-motion)\classes.h
+	"Functions.h"
+	"Rectangle.h"
+	"ConsoleDisplay.h"
+	"Class Functions.h"
+
+1642241646 d:\programming\projects (portfolio)\2021.12.06 (laws-of-motion)\functions.h
+
+1654889869 d:\programming\projects (portfolio)\2021.12.06 (laws-of-motion)\rectangle.h
+
+1638754607 d:\programming\projects (portfolio)\2021.12.06 (laws-of-motion)\consoledisplay.h
+
+1654890831 d:\programming\projects (portfolio)\2021.12.06 (laws-of-motion)\class functions.h
+
