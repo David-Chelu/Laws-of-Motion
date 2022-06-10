@@ -63,14 +63,15 @@ Rectangle::Rectangle()
 
 bool Rectangle::UpdateVectors(int xMinimum, int yMinimum, int xMaximum, int yMaximum)
 {
-    this->DisplayValues
-    
     static int
         initialX,
-        initialY;
+        initialY,
+        compoundAcceleration;
 
     initialX = this->_position[0],
     initialY = this->_position[1];
+
+
 
     // first, handling the horizontal (x) vectors
     this->_position[0] = std::min(std::max(this->_position[0] + this->_velocity[0], xMinimum), xMaximum - this->_width);
@@ -90,6 +91,15 @@ bool Rectangle::UpdateVectors(int xMinimum, int yMinimum, int xMaximum, int yMax
     // if acceleration is not 0, then standard acceleration applies
     else
     {
+        if (this->_velocity[0] * this->_acceleration[0])
+        {
+            compoundAcceleration = this->_acceleration[0];
+        }
+        else
+        {
+            
+        }
+
         this->_velocity[0] = std::min(std::max(this->_velocity[0] + this->_acceleration[0], -this->_maximumVelocity[0]), this->_maximumVelocity[0]);
     }
 

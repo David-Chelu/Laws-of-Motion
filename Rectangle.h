@@ -65,7 +65,8 @@ bool Rectangle::UpdateVectors(int xMinimum, int yMinimum, int xMaximum, int yMax
 {
     static int
         initialX,
-        initialY;
+        initialY,
+        compoundAcceleration;
 
     initialX = this->_position[0],
     initialY = this->_position[1];
@@ -90,7 +91,18 @@ bool Rectangle::UpdateVectors(int xMinimum, int yMinimum, int xMaximum, int yMax
     // if acceleration is not 0, then standard acceleration applies
     else
     {
-        this->_velocity[0] = std::min(std::max(this->_velocity[0] + this->_acceleration[0], -this->_maximumVelocity[0]), this->_maximumVelocity[0]);
+        // if both the velocity and acceleration are in the same direction, there's no decay from changing direction
+        if (this->_velocity[0] * this->_acceleration[0] >= 0)
+        {
+            compoundAcceleration = this->_acceleration[0];
+        }
+        // on the other hand, if the two vectors are opposing, then the natural decay will contribute to the object's acted acceleration
+        else
+        {
+            compoundAcceleration = this->_acceleration[0] + (this->_acceleration[0] < 0? -Default::naturalAcceleration : Default::naturalAcceleration);
+        }
+
+        this->_velocity[0] = std::min(std::max(this->_velocity[0] + compoundAcceleration, -this->_maximumVelocity[0]), this->_maximumVelocity[0]);
     }
 
 
@@ -113,7 +125,18 @@ bool Rectangle::UpdateVectors(int xMinimum, int yMinimum, int xMaximum, int yMax
     // if acceleration is not 0, then standard acceleration applies
     else
     {
-        this->_velocity[1] = std::min(std::max(this->_velocity[1] + this->_acceleration[1], -this->_maximumVelocity[1]), this->_maximumVelocity[1]);
+        // if both the velocity and acceleration are in the same direction, there's no decay from changing direction
+        if (this->_velocity[1] * this->_acceleration[1] >= 0)
+        {
+            compoundAcceleration = this->_acceleration[1];
+        }
+        // on the other hand, if the two vectors are opposing, then the natural decay will contribute to the object's acted acceleration
+        else
+        {
+            compoundAcceleration = this->_acceleration[1] + (this->_acceleration[1] < 0? -Default::naturalAcceleration : Default::naturalAcceleration);
+        }
+
+        this->_velocity[1] = std::min(std::max(this->_velocity[1] + compoundAcceleration, -this->_maximumVelocity[1]), this->_maximumVelocity[1]);
     }
 
     // if both coordinates stay unchanged, it returns false to mean there was no update in the object's position
