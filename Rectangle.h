@@ -14,8 +14,6 @@ public:
         UpdateVectors(int xMinimum, int yMinimum, int xMaximum, int yMaximum);
 
     void
-        AccelerateVertical(int direction),
-        AccelerateHorizontal(int direction),
         DisplayValues();
 
     std::vector<int>
@@ -142,16 +140,6 @@ bool Rectangle::UpdateVectors(int xMinimum, int yMinimum, int xMaximum, int yMax
     // if both coordinates stay unchanged, it returns false to mean there was no update in the object's position
     return !(initialX == this->_position[0] &&
              initialY == this->_position[1]);
-}
-
-void Rectangle::AccelerateVertical(int direction)
-{
-    this->_acceleration[1] = direction;
-}
-
-void Rectangle::AccelerateHorizontal(int direction)
-{
-    this->_acceleration[0] = direction;
 }
 
 void Rectangle::DisplayValues()

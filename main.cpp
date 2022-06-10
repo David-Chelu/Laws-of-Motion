@@ -9,6 +9,7 @@ namespace Default
 {
     // these values assume the console is on a 1920x1080 monitor, windows 8, with Raster Fonts, 8x8 font size, with 238x126 console buffer and window sizes.
     // The number 125 is chosen instead of 126, because that leaves a trailing line for the cursor to rest, without the image being scrolled down.
+    // By default, these values are 80 and 25, respectively, and can be changed in the layout tab in the console properties.
     int
         bufferWidth  = 238,
         bufferHeight = 125,
