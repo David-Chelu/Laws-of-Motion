@@ -69,6 +69,35 @@ std::vector<int> ReadBufferSizeFromFile(const char *directory)
     return bufferSize;
 }
 
+// this function makes use of windows functions to directly check the buffer size of the console
+std::vector<int> ReadBufferSizeFromWindow()
+{
+    PCONSOLE_SCREEN_BUFFER_INFO
+        consoleBufferInfo = new CONSOLE_SCREEN_BUFFER_INFO;
+
+    std::vector<int>
+        bufferSize;
+
+    BOOL
+        result = GetConsoleScreenBufferInfo(Default::consoleOutputHandle,
+                                            consoleBufferInfo);
+
+    if (!result)
+    {
+        return ReadBufferSizeFromFile("data.txt");
+    }
+
+    bufferSize.push_back(consoleBufferInfo->dwSize.X);
+    bufferSize.push_back(consoleBufferInfo->srWindow.Bottom - consoleBufferInfo->srWindow.Top);
+
+    delete consoleBufferInfo;
+
+    std::cout << bufferSize[0] << ", "
+              << bufferSize[1];
+
+    return bufferSize;
+}
+
 
 
 #endif // FUNCTIONS_H

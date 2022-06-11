@@ -7,7 +7,7 @@
 class Rectangle
 {
 public:
-    Rectangle();
+    Rectangle(int bufferWidth = Default::bufferWidth, int bufferHeight = Default::bufferHeight);
 
     // whenever this method is called, the rectangle's vectors are updated, to simulate motion (position vector, velocity vector, acceleration vector)
     bool
@@ -38,15 +38,15 @@ private:
         _height;
 };
 
-Rectangle::Rectangle()
+Rectangle::Rectangle(int bufferWidth, int bufferHeight)
 {
     // arbitrary size
     this->_width = 8;
     this->_height = 5;
 
     // the object is positioned in the center of the console
-    this->_position.push_back((Default::bufferWidth  - this->_width)  / 2);
-    this->_position.push_back((Default::bufferHeight - this->_height) / 2);
+    this->_position.push_back((bufferWidth  - this->_width)  / 2);
+    this->_position.push_back((bufferHeight - this->_height) / 2);
 
     // at first, the object is stationary
     this->_velocity.push_back(0);
